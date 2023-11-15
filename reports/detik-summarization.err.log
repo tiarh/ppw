@@ -1,0 +1,121 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+class Detik:
+    def __init__(self, topic):
+        self.topic = topic
+        self.df = None  # Inisialisasi DataFrame sebagai None
+
+    def get_urls(self):
+        news_links = []
+        # get news URL from page 1
+        page = 1
+        url = f"https://www.detik.com/search/searchall?query={self.topic}&siteid=2&sortby=time&page={page}"
+        html_page = requests.get(url).content
+        soup = BeautifulSoup(html_page, 'lxml')
+        articles = soup.find_all('article')
+
+        # Ambil hanya satu URL berita, jika ada
+        if articles:
+            url = articles[0].find('a')['href']
+            news_links.append(url)
+
+        return news_links
+
+    def has_link(self, text):
+        # Fungsi untuk memeriksa apakah teks mengandung tautan
+        return 'href=' in text
+
+    def extract_news(self):
+        # get news article details from scraped URLs
+        scraped_info = []
+        for news in self.get_urls():
+            source = news
+            html_page = requests.get(news).content
+            soup = BeautifulSoup(html_page, 'lxml')
+            # check if title, author, date, news div, is not None type
+            title = soup.find('h1', class_='detail__title')
+            if title is not None:
+                title = title.text
+                title = title.replace('\n', '')
+                title = title.strip()
+
+            author = soup.find('div', class_='detail__author')
+            if author is not None:
+                author = author.text
+
+            date = soup.find('div', class_='detail__date')
+            if date is not None:
+                date = date.text
+
+            # Ambil isi berita dari div dengan class 'detail__body-text itp_bodycontent'
+            content_div = soup.find("div", {"class": "detail__body-text itp_bodycontent"})
+            if content_div:
+                # Hilangkan elemen-elemen <a> yang merupakan tautan
+                for a_tag in content_div.find_all(self.has_link):
+                    a_tag.decompose()
+
+                # Ambil teks dari div
+                news_content = ' '.join(content_div.stripped_strings)
+
+                # convert scraped data into a dictionary
+                news_data = {
+                    "url": source,
+                    "judul": title,
+                    "penulis": author,
+                    "tanggal": date,
+                    "isi": news_content
+                }
+                # add dictionaries to a list
+                scraped_info.append(news_data)
+
+        self.df = pd.DataFrame.from_dict(scraped_info)
+        self.df.to_csv(f'{self.topic}.csv', index=False)  # Simpan DataFrame ke dalam file CSV
+
+# Input topik berita
+topic = input("Masukkan topik berita yang ingin diambil: ")
+detik_crawler = Detik(topic)
+detik_crawler.extract_news()
+
+# Setelah DataFrame df dibuat dalam metode extract_news, Anda dapat mengaksesnya di sini
+detik_crawler.df
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-8b43fc8103b3>[0m in [0;36m<cell line: 77>[0;34m()[0m
+[1;32m     75[0m [0;34m[0m[0m
+[1;32m     76[0m [0;31m# Input topik berita[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 77[0;31m [0mtopic[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m"Masukkan topik berita yang ingin diambil: "[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     78[0m [0mdetik_crawler[0m [0;34m=[0m [0mDetik[0m[0;34m([0m[0mtopic[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     79[0m [0mdetik_crawler[0m[0;34m.[0m[0mextract_news[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    846[0m         """
+[1;32m    847[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 848[0;31m             raise StdinNotImplementedError(
+[0m[1;32m    849[0m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    850[0m             )
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+
