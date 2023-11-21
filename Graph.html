@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Crawl Detik &#8212; My sample book</title>
+    <title>Crawl Detik &#8212; PPW</title>
   
   
   
@@ -150,8 +150,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="PPW - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PPW - Home"/>`);</script>
   
   
 </a></div>
@@ -397,7 +397,6 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawl Detik</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kalimat">Ekstraksi Kalimat</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-cosinus-similarity">Matrix Cosinus Similarity</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-graph">Membentuk Graph</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-eigenvector-pagerank-betweenness-centrality">Closeness, Eigenvector, Pagerank, Betweenness Centrality</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
@@ -535,19 +534,20 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
-
-<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
 
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 
+<span class="c1"># Mendapatkan daftar stop words dalam bahasa Indonesia</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
+
 <span class="c1"># Fungsi untuk melakukan tokenisasi kata, konversi ke huruf kecil, dan menghapus tanda baca dan angka</span>
 <span class="k">def</span> <span class="nf">extract_and_preprocess_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">and</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">)]</span>
 
@@ -578,20 +578,20 @@ document.write(`
 [nltk_data]   Package stopwords is already up-to-date!
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    berita_id      kata
-0           0    madiun
-1           0     ketua
-2           0   majelis
-3           0    partai
-4           0  demokrat
-..        ...       ...
-207         0   pilpres
-208         0       sby
-209         0   prabowo
-210         0   politik
-211         0    madiun
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    berita_id     kata
+0           0  bandung
+1           0     nama
+2           0     anak
+3           0      doa
+4           0  harapan
+..        ...      ...
+450         0     bayi
+451         0    sunda
+452         0     nama
+453         0    sunda
+454         0    sunda
 
-[212 rows x 2 columns]
+[455 rows x 2 columns]
 </pre></div>
 </div>
 </div>
@@ -599,128 +599,6 @@ document.write(`
 </section>
 <section id="tf-idf">
 <h1>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
-
-<span class="c1"># Inisialisasi objek TfidfVectorizer untuk token kata</span>
-<span class="n">tfidf_vectorizer_kata</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">preprocessor</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># Sesuaikan max_features sesuai kebutuhan</span>
-
-<span class="c1"># Transforms kata menjadi matriks TF-IDF</span>
-<span class="n">tfidf_matrix_kata</span> <span class="o">=</span> <span class="n">tfidf_vectorizer_kata</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">kata_df</span><span class="p">[</span><span class="s1">&#39;kata&#39;</span><span class="p">])</span>
-
-<span class="c1"># Dapatkan daftar fitur (kata-kata) yang terkandung dalam TF-IDF</span>
-<span class="n">feature_names_kata</span> <span class="o">=</span> <span class="n">tfidf_vectorizer_kata</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
-
-<span class="c1"># Buat DataFrame dari matriks TF-IDF dengan nama fitur sebagai kolom</span>
-<span class="n">tfidf_df_kata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_matrix_kata</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names_kata</span><span class="p">)</span>
-
-<span class="c1"># Tampilkan DataFrame TF-IDF</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tfidf_df_kata</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     acara  advertisement  ahy  air  akabri  akademi  aksi  aktif  aston  \
-0      0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-1      0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-2      0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-3      0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-4      0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-..     ...            ...  ...  ...     ...      ...   ...    ...    ...   
-207    0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-208    0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-209    0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-210    0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-211    0.0            0.0  0.0  0.0     0.0      0.0   0.0    0.0    0.0   
-
-     baca  ...  timur  titip  tni   to  tugas  turun  video  wilayah  with  \
-0     0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-1     0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-2     0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-3     0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-4     0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-..    ...  ...    ...    ...  ...  ...    ...    ...    ...      ...   ...   
-207   0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-208   0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-209   0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-210   0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-211   0.0  ...    0.0    0.0  0.0  0.0    0.0    0.0    0.0      0.0   0.0   
-
-     yudhoyono  
-0          0.0  
-1          0.0  
-2          0.0  
-3          0.0  
-4          0.0  
-..         ...  
-207        0.0  
-208        0.0  
-209        0.0  
-210        0.0  
-211        0.0  
-
-[212 rows x 149 columns]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="matrix-cosinus-similarity">
-<h1>Matrix Cosinus Similarity<a class="headerlink" href="#matrix-cosinus-similarity" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
-
-<span class="c1"># Ambil matriks TF-IDF dari DataFrame untuk kata</span>
-<span class="n">tfidf_matrix_kata</span> <span class="o">=</span> <span class="n">tfidf_df_kata</span><span class="o">.</span><span class="n">values</span>
-
-<span class="c1"># Hanya ambil kata-kata yang muncul dalam setidaknya satu dokumen</span>
-<span class="n">non_empty_words</span> <span class="o">=</span> <span class="n">tfidf_df_kata</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">tfidf_df_kata</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">tfidf_matrix_kata_filtered</span> <span class="o">=</span> <span class="n">tfidf_df_kata</span><span class="p">[</span><span class="n">non_empty_words</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="c1"># Hitung kemiripan kosinus antara kata-kata</span>
-<span class="n">cosine_similarity_kata</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_matrix_kata_filtered</span><span class="p">,</span> <span class="n">tfidf_matrix_kata_filtered</span><span class="p">)</span>
-
-<span class="c1"># Buat DataFrame dari matriks kemiripan kosinus</span>
-<span class="n">cosine_similarity_df_kata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cosine_similarity_kata</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">non_empty_words</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">non_empty_words</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-11-cf42a6c378d8&gt;</span> in <span class="ni">&lt;cell line: 14&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Buat DataFrame dari matriks kemiripan kosinus</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">cosine_similarity_df_kata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cosine_similarity_kata</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">non_empty_words</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">non_empty_words</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py</span> in <span class="ni">__init__</span><span class="nt">(self, data, index, columns, dtype, copy)</span>
-<span class="g g-Whitespace">    </span><span class="mi">720</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">721</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">722</span>                 <span class="n">mgr</span> <span class="o">=</span> <span class="n">ndarray_to_mgr</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>                     <span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span>                     <span class="n">index</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/internals/construction.py</span> in <span class="ni">ndarray_to_mgr</span><span class="nt">(values, index, columns, dtype, copy, typ)</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span> 
-<span class="ne">--&gt; </span><span class="mi">349</span>     <span class="n">_check_values_indices_shape_match</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">350</span> 
-<span class="g g-Whitespace">    </span><span class="mi">351</span>     <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;array&quot;</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/internals/construction.py</span> in <span class="ni">_check_values_indices_shape_match</span><span class="nt">(values, index, columns)</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span>         <span class="n">passed</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>         <span class="n">implied</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">columns</span><span class="p">))</span>
-<span class="ne">--&gt; </span><span class="mi">420</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of passed values is </span><span class="si">{</span><span class="n">passed</span><span class="si">}</span><span class="s2">, indices imply </span><span class="si">{</span><span class="n">implied</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">421</span> 
-<span class="g g-Whitespace">    </span><span class="mi">422</span> 
-
-<span class="ne">ValueError</span>: Shape of passed values is (212, 212), indices imply (149, 149)
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="membentuk-graph">
 <h1>Membentuk Graph<a class="headerlink" href="#membentuk-graph" title="Permalink to this heading">#</a></h1>
@@ -730,30 +608,26 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Buat graf</span>
-<span class="n">G_kata</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 
-<span class="c1"># Tambahkan simpul (node) untuk setiap kata</span>
-<span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">feature_names_kata</span><span class="p">:</span>
-    <span class="n">G_kata</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">kata</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">kata</span><span class="p">)</span>
+<span class="c1"># Tambahkan tepi (edge) antara kata-kata</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">kata_df</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">kata_df</span><span class="p">)):</span>  <span class="c1"># Hindari menghitung skor untuk diri sendiri dan duplikat</span>
+        <span class="n">kata_i</span> <span class="o">=</span> <span class="n">kata_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;kata&#39;</span><span class="p">]</span>
+        <span class="n">kata_j</span> <span class="o">=</span> <span class="n">kata_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;kata&#39;</span><span class="p">]</span>
 
-<span class="c1"># Tambahkan tepi (edge) antara kata-kata berdasarkan skor kemiripan kosinus</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">kata_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_names_kata</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">kata_j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_names_kata</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>  <span class="c1"># Hindari menghitung skor untuk diri sendiri dan duplikat</span>
-            <span class="n">similarity_score</span> <span class="o">=</span> <span class="n">cosine_similarity_df_kata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">kata_i</span><span class="p">,</span> <span class="n">kata_j</span><span class="p">]</span>
-            <span class="n">G_kata</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">kata_i</span><span class="p">,</span> <span class="n">kata_j</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">similarity_score</span><span class="p">)</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">kata_i</span><span class="p">,</span> <span class="n">kata_j</span><span class="p">)</span>
 
-<span class="c1"># Dapatkan label dari simpul-simpul</span>
-<span class="n">labels_kata</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">G_kata</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">)</span>
-
-<span class="c1"># Gambar graf kata-kata</span>
-<span class="n">pos_kata</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G_kata</span><span class="p">)</span>
-<span class="n">weights_kata</span> <span class="o">=</span> <span class="p">[</span><span class="n">G_kata</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G_kata</span><span class="o">.</span><span class="n">edges</span><span class="p">]</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_kata</span><span class="p">,</span> <span class="n">pos_kata</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels_kata</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">weights_kata</span><span class="p">,</span> <span class="n">edge_cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
-
+<span class="c1"># Gambar graf</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0191bc59518b076146126226f57b761c652e71d3b19f74d5475e062dd11ac5b4.png" src="_images/0191bc59518b076146126226f57b761c652e71d3b19f74d5475e062dd11ac5b4.png" />
 </div>
 </div>
 </section>
@@ -912,7 +786,6 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawl Detik</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kalimat">Ekstraksi Kalimat</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-cosinus-similarity">Matrix Cosinus Similarity</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-graph">Membentuk Graph</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-eigenvector-pagerank-betweenness-centrality">Closeness, Eigenvector, Pagerank, Betweenness Centrality</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
@@ -934,7 +807,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Ikhtiar Hidayatullah
 </p>
 
   </div>
