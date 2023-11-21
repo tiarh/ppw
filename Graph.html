@@ -161,17 +161,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    <no title>
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LDA.html">Topic Modelling LDA</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="detik-summarization.html">Detik Summarization</a></li>
-</ul>
-
+        
     </div>
 </nav></div>
     </div>
@@ -655,14 +649,168 @@ document.write(`
 <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">sorted_closeness</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1"># Tampilkan 3 kalimat teratas dari nilai tertinggi</span>
+<span class="c1"># Tampilkan 3 kata teratas dari nilai tertinggi</span>
 <span class="n">top_3_nodes</span> <span class="o">=</span> <span class="n">sorted_closeness</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiga Kalimat Teratas dari Nilai Tertinggi Closeness Centrality:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiga Kata Teratas dari Nilai Tertinggi Closeness Centrality:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">top_3_nodes</span><span class="p">:</span>
-    <span class="n">kalimat_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Mendapatkan indeks kalimat dari simpul</span>
-    <span class="n">kalimat</span> <span class="o">=</span> <span class="n">kalimat_df</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">][</span><span class="n">kalimat_index</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kalimat #</span><span class="si">{</span><span class="n">kalimat_index</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">kalimat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kata: </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closeness Similarity Scores (Dari Tertinggi ke Terendah):
+banyuwangi: 1.0
+ratusan: 1.0
+pembalap: 1.0
+daerah: 1.0
+jawa: 1.0
+bali: 1.0
+nusa: 1.0
+tenggara: 1.0
+timur: 1.0
+beradu: 1.0
+kecepatan: 1.0
+ketangkasan: 1.0
+drag: 1.0
+bike: 1.0
+digelar: 1.0
+desa: 1.0
+dasri: 1.0
+tegalsari: 1.0
+sirkuit: 1.0
+jalan: 1.0
+wiroguno: 1.0
+jalur: 1.0
+alternatif: 1.0
+menghubungkan: 1.0
+kecamatan: 1.0
+genteng: 1.0
+mencapai: 1.0
+kilometer: 1.0
+lebar: 1.0
+meter: 1.0
+bupati: 1.0
+ipuk: 1.0
+fiestiandani: 1.0
+salah: 1.0
+sport: 1.0
+tourism: 1.0
+didukung: 1.0
+pemkab: 1.0
+mewadahi: 1.0
+anak: 1.0
+muda: 1.0
+hobi: 1.0
+balap: 1.0
+motor: 1.0
+advertisement: 1.0
+scroll: 1.0
+to: 1.0
+continue: 1.0
+with: 1.0
+content: 1.0
+ajang: 1.0
+melengkapi: 1.0
+roadrace: 1.0
+ijen: 1.0
+downhill: 1.0
+bmx: 1.0
+menyaksikan: 1.0
+kejuaraan: 1.0
+dragbike: 1.0
+baca: 1.0
+gelar: 1.0
+geopark: 1.0
+cegah: 1.0
+balapan: 1.0
+liar: 1.0
+disulap: 1.0
+dibangun: 1.0
+mendorong: 1.0
+pertumbuhan: 1.0
+ekonomi: 1.0
+selatan: 1.0
+pemandangan: 1.0
+hamparan: 1.0
+sawah: 1.0
+daya: 1.0
+tarik: 1.0
+tersendiri: 1.0
+pengguna: 1.0
+melintas: 1.0
+kawasan: 1.0
+latar: 1.0
+gunung: 1.0
+raung: 1.0
+dimanfaatkan: 1.0
+arena: 1.0
+lebarnya: 1.0
+penonton: 1.0
+menikmati: 1.0
+kejauhan: 1.0
+nonton: 1.0
+antusias: 1.0
+memadati: 1.0
+puluhan: 1.0
+nomor: 1.0
+kelas: 1.0
+cc: 1.0
+ketua: 1.0
+penyelenggara: 1.0
+sugiono: 1.0
+suges: 1.0
+bertujuan: 1.0
+mengembangkan: 1.0
+dunia: 1.0
+otomotif: 1.0
+olahraga: 1.0
+favorit: 1.0
+senang: 1.0
+antusiasme: 1.0
+peserta: 1.0
+menjalin: 1.0
+silaturahmi: 1.0
+sharing: 1.0
+ilmu: 1.0
+usia: 1.0
+halangi: 1.0
+cewek: 1.0
+ngebut: 1.0
+diikuti: 1.0
+starter: 1.0
+mengendarai: 1.0
+berbeda: 1.0
+diminati: 1.0
+berharap: 1.0
+wadah: 1.0
+menyalurkan: 1.0
+bakat: 1.0
+minat: 1.0
+bidang: 1.0
+berpartisipasi: 1.0
+raka: 1.0
+komang: 1.0
+rx: 1.0
+king: 1.0
+dimodifikasi: 1.0
+aksesoris: 1.0
+performa: 1.0
+bertemu: 1.0
+belajar: 1.0
+mengharumkan: 1.0
+nama: 1.0
+simak: 1.0
+video: 1.0
+keindahan: 1.0
+alam: 1.0
+kereta: 1.0
+wisata: 1.0
+gambas: 1.0
+Tiga Kata Teratas dari Nilai Tertinggi Closeness Centrality:
+Kata: banyuwangi
+Kata: ratusan
+Kata: pembalap
 </pre></div>
 </div>
 </div>

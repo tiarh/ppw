@@ -65,8 +65,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'LDA';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Detik Summarization" href="detik-summarization.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,17 +161,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    <no title>
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Topic Modelling LDA</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="detik-summarization.html">Detik Summarization</a></li>
-</ul>
-
+        
     </div>
 </nav></div>
     </div>
@@ -449,7 +441,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-674c2932-85cf-4e76-8a17-e395d53c2cd3" class="colab-df-container">
+  <div id="df-f0551d4f-eec2-4e6b-8376-007ac0610195" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -583,7 +575,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-674c2932-85cf-4e76-8a17-e395d53c2cd3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f0551d4f-eec2-4e6b-8376-007ac0610195')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -635,12 +627,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-674c2932-85cf-4e76-8a17-e395d53c2cd3 button.colab-df-convert');
+        document.querySelector('#df-f0551d4f-eec2-4e6b-8376-007ac0610195 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-674c2932-85cf-4e76-8a17-e395d53c2cd3');
+        const element = document.querySelector('#df-f0551d4f-eec2-4e6b-8376-007ac0610195');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -682,16 +674,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting indoNLP
-  Downloading indoNLP-0.3.4-py3-none-any.whl (121 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/121.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">92.2/121.9 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">121.9/121.9 kB</span> <span class=" -Color -Color-Red">2.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: indoNLP
-Successfully installed indoNLP-0.3.4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: indoNLP in /usr/local/lib/python3.10/dist-packages (0.3.4)
 </pre></div>
 </div>
 </div>
@@ -742,7 +725,7 @@ Successfully installed indoNLP-0.3.4
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d6b121a8-2622-48c4-a935-7812c2391fb3" class="colab-df-container">
+  <div id="df-1087ff85-f6ad-48e9-8451-c5f3deb2ed45" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -821,7 +804,7 @@ Successfully installed indoNLP-0.3.4
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d6b121a8-2622-48c4-a935-7812c2391fb3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1087ff85-f6ad-48e9-8451-c5f3deb2ed45')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -873,12 +856,12 @@ Successfully installed indoNLP-0.3.4
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d6b121a8-2622-48c4-a935-7812c2391fb3 button.colab-df-convert');
+        document.querySelector('#df-1087ff85-f6ad-48e9-8451-c5f3deb2ed45 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d6b121a8-2622-48c4-a935-7812c2391fb3');
+        const element = document.querySelector('#df-1087ff85-f6ad-48e9-8451-c5f3deb2ed45');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -938,7 +921,7 @@ Successfully installed indoNLP-0.3.4
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-cf58f829-459f-4b1f-8139-039aafe3d7a4" class="colab-df-container">
+  <div id="df-f899b6f1-05dd-4c93-8dd7-03cb98744004" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -972,7 +955,7 @@ Successfully installed indoNLP-0.3.4
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-cf58f829-459f-4b1f-8139-039aafe3d7a4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f899b6f1-05dd-4c93-8dd7-03cb98744004')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1024,12 +1007,12 @@ Successfully installed indoNLP-0.3.4
 
     <script>
       const buttonEl =
-        document.querySelector('#df-cf58f829-459f-4b1f-8139-039aafe3d7a4 button.colab-df-convert');
+        document.querySelector('#df-f899b6f1-05dd-4c93-8dd7-03cb98744004 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-cf58f829-459f-4b1f-8139-039aafe3d7a4');
+        const element = document.querySelector('#df-f899b6f1-05dd-4c93-8dd7-03cb98744004');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1068,92 +1051,59 @@ Successfully installed indoNLP-0.3.4
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading collection &#39;popular&#39;
 [nltk_data]    | 
 [nltk_data]    | Downloading package cmudict to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/cmudict.zip.
+[nltk_data]    |   Package cmudict is already up-to-date!
 [nltk_data]    | Downloading package gazetteers to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/gazetteers.zip.
+[nltk_data]    |   Package gazetteers is already up-to-date!
 [nltk_data]    | Downloading package genesis to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/genesis.zip.
+[nltk_data]    |   Package genesis is already up-to-date!
 [nltk_data]    | Downloading package gutenberg to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/gutenberg.zip.
+[nltk_data]    |   Package gutenberg is already up-to-date!
 [nltk_data]    | Downloading package inaugural to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/inaugural.zip.
+[nltk_data]    |   Package inaugural is already up-to-date!
 [nltk_data]    | Downloading package movie_reviews to
 [nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/movie_reviews.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package names to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/names.zip.
+[nltk_data]    |   Package movie_reviews is already up-to-date!
+[nltk_data]    | Downloading package names to /root/nltk_data...
+[nltk_data]    |   Package names is already up-to-date!
 [nltk_data]    | Downloading package shakespeare to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/shakespeare.zip.
+[nltk_data]    |   Package shakespeare is already up-to-date!
 [nltk_data]    | Downloading package stopwords to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/stopwords.zip.
+[nltk_data]    |   Package stopwords is already up-to-date!
 [nltk_data]    | Downloading package treebank to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/treebank.zip.
+[nltk_data]    |   Package treebank is already up-to-date!
 [nltk_data]    | Downloading package twitter_samples to
 [nltk_data]    |     /root/nltk_data...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/twitter_samples.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package omw to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package omw-1.4 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet to /root/nltk_data...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package twitter_samples is already up-to-date!
+[nltk_data]    | Downloading package omw to /root/nltk_data...
+[nltk_data]    |   Package omw is already up-to-date!
+[nltk_data]    | Downloading package omw-1.4 to /root/nltk_data...
+[nltk_data]    |   Package omw-1.4 is already up-to-date!
+[nltk_data]    | Downloading package wordnet to /root/nltk_data...
+[nltk_data]    |   Package wordnet is already up-to-date!
 [nltk_data]    | Downloading package wordnet2021 to /root/nltk_data...
+[nltk_data]    |   Package wordnet2021 is already up-to-date!
+[nltk_data]    | Downloading package wordnet31 to /root/nltk_data...
+[nltk_data]    |   Package wordnet31 is already up-to-date!
+[nltk_data]    | Downloading package wordnet_ic to /root/nltk_data...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet31 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet_ic to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/wordnet_ic.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package words to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/words.zip.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package wordnet_ic is already up-to-date!
+[nltk_data]    | Downloading package words to /root/nltk_data...
+[nltk_data]    |   Package words is already up-to-date!
 [nltk_data]    | Downloading package maxent_ne_chunker to
 [nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping chunkers/maxent_ne_chunker.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package punkt to /root/nltk_data...
-[nltk_data]    |   Unzipping tokenizers/punkt.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package snowball_data to
+[nltk_data]    |   Package maxent_ne_chunker is already up-to-date!
+[nltk_data]    | Downloading package punkt to /root/nltk_data...
+[nltk_data]    |   Package punkt is already up-to-date!
+[nltk_data]    | Downloading package snowball_data to
 [nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package averaged_perceptron_tagger to
+[nltk_data]    |   Package snowball_data is already up-to-date!
+[nltk_data]    | Downloading package averaged_perceptron_tagger to
 [nltk_data]    |     /root/nltk_data...
-[nltk_data]    |   Unzipping taggers/averaged_perceptron_tagger.zip.
+[nltk_data]    |   Package averaged_perceptron_tagger is already up-
+[nltk_data]    |       to-date!
 [nltk_data]    | 
 [nltk_data]  Done downloading collection popular
 </pre></div>
@@ -1173,7 +1123,7 @@ Successfully installed indoNLP-0.3.4
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-97edac5a-0dd3-4563-98db-1bd7e9c8d4dc" class="colab-df-container">
+  <div id="df-0fe9e567-58d1-4836-bc26-15dbedb062af" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1228,7 +1178,7 @@ Successfully installed indoNLP-0.3.4
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-97edac5a-0dd3-4563-98db-1bd7e9c8d4dc')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0fe9e567-58d1-4836-bc26-15dbedb062af')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1280,12 +1230,12 @@ Successfully installed indoNLP-0.3.4
 
     <script>
       const buttonEl =
-        document.querySelector('#df-97edac5a-0dd3-4563-98db-1bd7e9c8d4dc button.colab-df-convert');
+        document.querySelector('#df-0fe9e567-58d1-4836-bc26-15dbedb062af button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-97edac5a-0dd3-4563-98db-1bd7e9c8d4dc');
+        const element = document.querySelector('#df-0fe9e567-58d1-4836-bc26-15dbedb062af');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1347,7 +1297,7 @@ Successfully installed indoNLP-0.3.4
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d2545624-3357-4701-b1ba-17149a332bf3" class="colab-df-container">
+  <div id="df-a6affb9a-c7eb-4c60-9097-42cfc32fd2c3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1402,7 +1352,7 @@ Successfully installed indoNLP-0.3.4
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d2545624-3357-4701-b1ba-17149a332bf3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a6affb9a-c7eb-4c60-9097-42cfc32fd2c3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1454,12 +1404,12 @@ Successfully installed indoNLP-0.3.4
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d2545624-3357-4701-b1ba-17149a332bf3 button.colab-df-convert');
+        document.querySelector('#df-a6affb9a-c7eb-4c60-9097-42cfc32fd2c3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d2545624-3357-4701-b1ba-17149a332bf3');
+        const element = document.querySelector('#df-a6affb9a-c7eb-4c60-9097-42cfc32fd2c3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1518,7 +1468,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-79ea442d-859c-4746-8196-a2300a45c2b8" class="colab-df-container">
+  <div id="df-07dce641-339d-4469-b9ad-a76a759877fe" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1652,7 +1602,7 @@ dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-79ea442d-859c-4746-8196-a2300a45c2b8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-07dce641-339d-4469-b9ad-a76a759877fe')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1704,12 +1654,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-79ea442d-859c-4746-8196-a2300a45c2b8 button.colab-df-convert');
+        document.querySelector('#df-07dce641-339d-4469-b9ad-a76a759877fe button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-79ea442d-859c-4746-8196-a2300a45c2b8');
+        const element = document.querySelector('#df-07dce641-339d-4469-b9ad-a76a759877fe');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1759,7 +1709,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5b7c850d-97bd-471c-97ca-d9e930c4775f" class="colab-df-container">
+  <div id="df-995c321a-2684-4702-af0f-02214b822160" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1838,7 +1788,7 @@ dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5b7c850d-97bd-471c-97ca-d9e930c4775f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-995c321a-2684-4702-af0f-02214b822160')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1890,12 +1840,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5b7c850d-97bd-471c-97ca-d9e930c4775f button.colab-df-convert');
+        document.querySelector('#df-995c321a-2684-4702-af0f-02214b822160 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5b7c850d-97bd-471c-97ca-d9e930c4775f');
+        const element = document.querySelector('#df-995c321a-2684-4702-af0f-02214b822160');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2135,7 +2085,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3e268ca8-e2a1-4fe3-9274-425c6c465531" class="colab-df-container">
+  <div id="df-2b5a824a-e7d1-467c-94c2-fbe30c137383" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2449,7 +2399,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3e268ca8-e2a1-4fe3-9274-425c6c465531')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2b5a824a-e7d1-467c-94c2-fbe30c137383')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2501,12 +2451,12 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3e268ca8-e2a1-4fe3-9274-425c6c465531 button.colab-df-convert');
+        document.querySelector('#df-2b5a824a-e7d1-467c-94c2-fbe30c137383 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3e268ca8-e2a1-4fe3-9274-425c6c465531');
+        const element = document.querySelector('#df-2b5a824a-e7d1-467c-94c2-fbe30c137383');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2577,7 +2527,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c8656cf2-1ff8-4834-94d2-6777afd23738" class="colab-df-container">
+  <div id="df-a97c382e-1a42-4438-a555-146e99f29534" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2891,7 +2841,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c8656cf2-1ff8-4834-94d2-6777afd23738')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a97c382e-1a42-4438-a555-146e99f29534')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2943,12 +2893,12 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c8656cf2-1ff8-4834-94d2-6777afd23738 button.colab-df-convert');
+        document.querySelector('#df-a97c382e-1a42-4438-a555-146e99f29534 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c8656cf2-1ff8-4834-94d2-6777afd23738');
+        const element = document.querySelector('#df-a97c382e-1a42-4438-a555-146e99f29534');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3014,7 +2964,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-858075f6-d97d-4f9e-813e-ee6e1d3833b8" class="colab-df-container">
+  <div id="df-3898b668-0eb3-4483-88f4-bc3b448e0130" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3136,7 +3086,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-858075f6-d97d-4f9e-813e-ee6e1d3833b8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3898b668-0eb3-4483-88f4-bc3b448e0130')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3188,12 +3138,12 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 
     <script>
       const buttonEl =
-        document.querySelector('#df-858075f6-d97d-4f9e-813e-ee6e1d3833b8 button.colab-df-convert');
+        document.querySelector('#df-3898b668-0eb3-4483-88f4-bc3b448e0130 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-858075f6-d97d-4f9e-813e-ee6e1d3833b8');
+        const element = document.querySelector('#df-3898b668-0eb3-4483-88f4-bc3b448e0130');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3248,7 +3198,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-af2329f2-f05d-481f-acc5-0ce73b08bc83" class="colab-df-container">
+  <div id="df-3eae0485-bb95-489c-845c-a3f1f93c2f15" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3370,7 +3320,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-af2329f2-f05d-481f-acc5-0ce73b08bc83')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3eae0485-bb95-489c-845c-a3f1f93c2f15')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3422,12 +3372,12 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 
     <script>
       const buttonEl =
-        document.querySelector('#df-af2329f2-f05d-481f-acc5-0ce73b08bc83 button.colab-df-convert');
+        document.querySelector('#df-3eae0485-bb95-489c-845c-a3f1f93c2f15 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-af2329f2-f05d-481f-acc5-0ce73b08bc83');
+        const element = document.querySelector('#df-3eae0485-bb95-489c-845c-a3f1f93c2f15');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3485,7 +3435,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-ead7549b-7423-44ff-be3b-64d8045cae73" class="colab-df-container">
+  <div id="df-50338d18-de3d-4969-8435-b35d97b4be21" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3520,7 +3470,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.001198</td>
       <td>0.001198</td>
       <td>0.001198</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
@@ -3529,7 +3479,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.996243</td>
       <td>0.000939</td>
       <td>0.000939</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
@@ -3538,7 +3488,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.000889</td>
       <td>0.000889</td>
       <td>0.000889</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -3547,7 +3497,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.001460</td>
       <td>0.001460</td>
       <td>0.001460</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3556,7 +3506,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.001170</td>
       <td>0.001170</td>
       <td>0.001170</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>...</th>
@@ -3583,7 +3533,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.351363</td>
       <td>0.001198</td>
       <td>0.001198</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>818</th>
@@ -3601,7 +3551,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.000778</td>
       <td>0.242264</td>
       <td>0.755401</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>820</th>
@@ -3610,7 +3560,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
       <td>0.001118</td>
       <td>0.001118</td>
       <td>0.001118</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -3619,7 +3569,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ead7549b-7423-44ff-be3b-64d8045cae73')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-50338d18-de3d-4969-8435-b35d97b4be21')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3671,12 +3621,12 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ead7549b-7423-44ff-be3b-64d8045cae73 button.colab-df-convert');
+        document.querySelector('#df-50338d18-de3d-4969-8435-b35d97b4be21 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ead7549b-7423-44ff-be3b-64d8045cae73');
+        const element = document.querySelector('#df-50338d18-de3d-4969-8435-b35d97b4be21');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3732,24 +3682,6 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="intro.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="detik-summarization.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Detik Summarization</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
