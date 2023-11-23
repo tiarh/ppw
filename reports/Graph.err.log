@@ -99,12 +99,13 @@ detik_crawler.extract_news()
 # Setelah DataFrame df dibuat dalam metode extract_news, Anda dapat mengaksesnya di sini
 detik_crawler.df
 
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
-[0;32m<ipython-input-1-a3deb2ac3a2f>[0m in [0;36m<cell line: 78>[0;34m()[0m
+[0;32m<ipython-input-1-528d90a214f1>[0m in [0;36m<cell line: 78>[0;34m()[0m
 [1;32m     76[0m [0;34m[0m[0m
 [1;32m     77[0m [0;31m# Input topik berita[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 78[0;31m [0mtopic[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m"Masukkan topik berita yang ingin diambil: "[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

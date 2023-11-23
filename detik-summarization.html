@@ -62,10 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'detik-summarization';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Topic Modelling LDA" href="LDA.html" />
+    <link rel="next" title="Crawl Detik" href="Graph.html" />
+    <link rel="prev" title="Import Data" href="LDA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,9 +171,21 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LDA.html">Topic Modelling LDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LDA.html">Import Data</a></li>
+
+
+
+
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Detik Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph.html">Crawl Detik</a></li>
+
+
+
+
+
+
+
 </ul>
 
     </div>
@@ -549,6 +564,10 @@ document.write(`
 </section>
 <section id="ekstraksi-kalimat">
 <h2>Ekstraksi Kalimat<a class="headerlink" href="#ekstraksi-kalimat" title="Permalink to this heading">#</a></h2>
+<p>untuk melakukan tokenisasi kalimat, mengonversi huruf menjadi huruf kecil, dan menghapus tanda baca, angka, serta karakter khusus lainnya dari setiap kalimat dalam sebuah teks berita.</p>
+<p>Pertama, dilakukan tokenisasi kalimat menggunakan library NLTK. Selanjutnya, dibuat sebuah fungsi extract_and_preprocess_sentences yang mengonversi setiap kalimat menjadi huruf kecil, menghapus tanda baca dan angka menggunakan regular expression, menghapus karakter ‘\n’, dan mengatasi spasi berlebih.</p>
+<p>Selanjutnya, dilakukan ekstraksi dan pemrosesan kalimat-kalimat dari berita-berita yang diperoleh melalui detik_crawler. Hasilnya disimpan dalam sebuah DataFrame baru (kalimat_df) yang memiliki kolom ‘berita_id’ dan ‘kalimat’. DataFrame ini akan menampung setiap kalimat beserta ID berita asalnya.</p>
+<p>Pada akhirnya, DataFrame tersebut ditampilkan melalui output print. Dengan demikian, kode ini mempersiapkan data kalimat-kalimat dari berita untuk analisis atau pemrosesan lebih lanjut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
@@ -638,6 +657,7 @@ document.write(`
 </section>
 <section id="tf-idf">
 <h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
+<p>untuk membuat matriks Term Frequency-Inverse Document Frequency (TF-IDF) dari kalimat-kalimat yang telah diolah sebelumnya. Pertama, objek TfidfVectorizer diinisialisasi untuk mengonversi teks menjadi representasi TF-IDF, kalimat-kalimat dari DataFrame kalimat_df diubah menjadi matriks TF-IDF, yang menggambarkan bobot kata-kata dalam setiap kalimat. Daftar fitur (kata-kata) yang terkandung dalam TF-IDF juga diperoleh. Matriks TF-IDF tersebut kemudian dibuat menjadi DataFrame (tfidf_df), di mana setiap baris merepresentasikan satu kalimat dan setiap kolom adalah kata-kata unik dalam keseluruhan korpus.  Dengan representasi numerik ini, matriks TF-IDF dapat menjadi dasar untuk konstruksi graf</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
@@ -1593,6 +1613,7 @@ document.write(`
 </section>
 <section id="matrix-cosinus-similarity">
 <h2>Matrix Cosinus Similarity<a class="headerlink" href="#matrix-cosinus-similarity" title="Permalink to this heading">#</a></h2>
+<p>kemudian untuk mengukur sejauh mana dua vektor (dalam hal ini, representasi TF-IDF dari dua kalimat atau dokumen) sejajar atau sejauh mana sudut antara kedua vektor tersebut mendekati nol. Semakin tinggi nilai cosine similarity, semakin mirip kedua vektor tersebut, menunjukkan tingkat kesamaan yang lebih tinggi antara kalimat atau dokumen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
@@ -2544,6 +2565,7 @@ document.write(`
 </section>
 <section id="membentuk-graph">
 <h2>Membentuk Graph<a class="headerlink" href="#membentuk-graph" title="Permalink to this heading">#</a></h2>
+<p>Setiap kalimat direpresentasikan sebagai simpul (node) dalam graf, dan tepi (edge) antara dua simpul dibuat berdasarkan skor kemiripan kosinus antara kalimat-kalimat tersebut. Dengan menentukan threshold, hanya skor kemiripan di atas nilai threshold yang akan membentuk tepi dalam graf. Graf yang dihasilkan memberikan visualisasi struktur dan hubungan antar kalimat, memungkinkan pemahaman lebih lanjut terkait dengan kesamaan atau keterkaitan topik dalam teks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
@@ -2601,6 +2623,14 @@ document.write(`
 </section>
 <section id="closeness-centrality">
 <h2>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Permalink to this heading">#</a></h2>
+<p>Closeness centrality adalah sebuah metrik dalam analisis jaringan yang mengukur seberapa cepat suatu simpul (node) dapat diakses oleh simpul-simpul lain dalam jaringan. Dalam konteks graf, closeness centrality didefinisikan sebagai invers dari total jarak terpendek dari simpul tersebut ke semua simpul lainnya dalam jaringan. Dengan kata lain, simpul dengan closeness centrality yang tinggi berarti lebih mudah diakses atau lebih dekat secara struktural dengan simpul-simpul lainnya dalam jaringan.</p>
+<p>Formula closeness centrality untuk simpul  dalam sebuah graf terhubung adalah sebagai berikut:
+<span class="math notranslate nohighlight">\(C(u) = \frac{1}{\sum_{v=1}^{n} d(u, v)}\)</span></p>
+<p>Dimana:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C(u)\)</span> adalah closeness centrality dari node <span class="math notranslate nohighlight">\(u\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d(u,v)\)</span>  adalah jarak terpendek antara node <span class="math notranslate nohighlight">\(u\)</span> dan <span class="math notranslate nohighlight">\(v\)</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tampilkan closeness centrality dari nilai tertinggi ke terendah</span>
@@ -2662,6 +2692,17 @@ Kalimat #22: sementara itu kepala dindik jatim aries agung paewai menyebut denga
 </section>
 <section id="pagerank-centrality">
 <h2>Pagerank Centrality<a class="headerlink" href="#pagerank-centrality" title="Permalink to this heading">#</a></h2>
+<p>PageRank centrality adalah suatu metode untuk mengukur pentingnya simpul (node) dalam suatu jaringan berbasis graf. Metode ini awalnya dikembangkan oleh Larry Page dan Sergey Brin untuk menilai relevansi halaman web dalam mesin pencari Google, dan kemudian diadopsi dalam analisis jaringan umumnya. PageRank centrality mengukur seberapa penting atau otoritatif suatu simpul dengan memperhitungkan jumlah dan kualitas koneksi yang dimilikinya. Intinya, simpul-simpul yang dihubungkan dengan simpul lain yang juga memiliki keterhubungan yang tinggi akan mendapatkan skor PageRank yang lebih tinggi.</p>
+<p>Rumus umum untuk menghitung nilai PageRank  dalam sebuah graf adalah:
+<span class="math notranslate nohighlight">\(PR(A) = (1-d) + d \left( \frac{PR(T1)}{C(T1)} + \frac{PR(T2)}{C(T2)} + ... + \frac{PR(Tn)}{C(Tn)} \right)\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(PR(A)\)</span> adalah PageRank dari halaman <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(PR(T1)\)</span> sampai <span class="math notranslate nohighlight">\(PR(Tn)\)</span> adalah PageRank dari halaman <span class="math notranslate nohighlight">\(T1\)</span> sampai <span class="math notranslate nohighlight">\(Tn\)</span> yang mengarah ke halaman <span class="math notranslate nohighlight">\(A\)</span> (yaitu halaman yang memiliki tautan ke <span class="math notranslate nohighlight">\(A\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(C(T1)\)</span> sampai <span class="math notranslate nohighlight">\(C(Tn)\)</span> adalah jumlah tautan keluar dari halaman <span class="math notranslate nohighlight">\(T1\)</span> sampai <span class="math notranslate nohighlight">\(Tn\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(d\)</span> adalah faktor damping, yang biasanya diatur ke 0.85.</p></li>
+</ul>
+<p>berikut contoh hitung manual dari pagerank :
+<a class="reference external" href="https://docs.google.com/spreadsheets/d/1v-Xs-6sDeWFsMoIyW-Jj5Tc70aHMDN4emdDBugFYykM/edit?usp=sharing">https://docs.google.com/spreadsheets/d/1v-Xs-6sDeWFsMoIyW-Jj5Tc70aHMDN4emdDBugFYykM/edit?usp=sharing</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_pagerank</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pagerank_centrality</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2722,6 +2763,16 @@ Kalimat #22: sementara itu kepala dindik jatim aries agung paewai menyebut denga
 </section>
 <section id="eigenvector-centrality">
 <h2>Eigenvector Centrality<a class="headerlink" href="#eigenvector-centrality" title="Permalink to this heading">#</a></h2>
+<p>Eigenvector centrality adalah metode pengukuran kepentingan simpul dalam suatu jaringan yang mempertimbangkan kualitas koneksi dari simpul tersebut. Pendekatan ini memberikan bobot yang lebih tinggi pada simpul yang terhubung dengan simpul-simpul lain yang juga memiliki kepentingan tinggi. Dengan kata lain, simpul dengan eigenvector centrality yang tinggi tidak hanya memiliki banyak koneksi, tetapi juga terhubung dengan simpul-simpul penting dalam jaringan.</p>
+<p>Eigenvector centrality dihitung berdasarkan nilai eigen dari matriks adjasensi atau matriks berbobot yang merepresentasikan struktur jaringan. Nilai eigen ini memberikan informasi tentang distribusi kepentingan simpul dalam jaringan. Simpul dengan nilai eigen yang tinggi cenderung terhubung dengan simpul-simpul lain yang juga memiliki nilai eigen yang tinggi.</p>
+<p>Rumus umum untuk menghitung eigenvector centrality dalam suatu jaringan adalah sebagai berikut:</p>
+<p><span class="math notranslate nohighlight">\(x_v = \frac{1}{\lambda} \sum_{t \in M(v)} x_t\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_v\)</span> adalah eigenvector centrality dari simpul <span class="math notranslate nohighlight">\(v\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(M(v)\)</span> adalah set simpul yang berdekatan dengan <span class="math notranslate nohighlight">\(v\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_t\)</span>​ adalah eigenvector centrality dari simpul <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p>λ adalah konstanta.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_eigenvector</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eigenvector_centrality</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2782,6 +2833,16 @@ Kalimat #22: sementara itu kepala dindik jatim aries agung paewai menyebut denga
 </section>
 <section id="betweenes-centrality">
 <h2>Betweenes Centrality<a class="headerlink" href="#betweenes-centrality" title="Permalink to this heading">#</a></h2>
+<p>Betweenness centrality adalah metode pengukuran kepentingan simpul dalam suatu jaringan berbasis graf yang mengukur seberapa sering suatu simpul menjadi perantara (intermediary) pada lintasan terpendek antara dua simpul lain dalam jaringan. Dengan kata lain, simpul dengan betweenness centrality yang tinggi cenderung memiliki peran penting dalam menghubungkan bagian-bagian yang berbeda dalam jaringan.
+rumusnya sebagai berikut:</p>
+<p><span class="math notranslate nohighlight">\(C_B(v) =\sum_{s,t \in V} \frac{\sigma(s, t|v)}{\sigma(s, t)}\)</span></p>
+<p>Dimana:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C_B​(v)\)</span> adalah betweenness centrality dari simpul <span class="math notranslate nohighlight">\(v\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V\)</span> adalah set simpul dalam jaringan</p></li>
+<li><p><span class="math notranslate nohighlight">\(σ(s,t)\)</span> adalah jumlah shortest path dari simpul <span class="math notranslate nohighlight">\(s\)</span> ke simpul <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(σ(s,t∣v)\)</span> adalah jumlah shortest path dari simpul <span class="math notranslate nohighlight">\(s\)</span> ke simpul <span class="math notranslate nohighlight">\(t\)</span> yang melewati simpul <span class="math notranslate nohighlight">\(v\)</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_betweeness</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">betweenness_centrality</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2878,8 +2939,17 @@ Kalimat #22: sementara itu kepala dindik jatim aries agung paewai menyebut denga
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Topic Modelling LDA</p>
+        <p class="prev-next-title">Import Data</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Graph.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crawl Detik</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
