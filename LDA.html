@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Import Data &#8212; PPW</title>
+    <title>Topic Modelling LDA &#8212; PPW</title>
   
   
   
@@ -171,21 +171,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Import Data</a></li>
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Topic Modelling LDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="detik-summarization.html">Detik Summarization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Graph.html">Crawl Detik</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="Graph.html">Graph Ektraksi Kata</a></li>
 </ul>
 
     </div>
@@ -400,7 +388,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Import Data</h1>
+    <h1>Topic Modelling LDA</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,20 +398,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-duplikasi-abstrak">Cek Data Duplikasi Abstrak</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kata-tidak-penting-stopwords">Menghapus Kata Tidak Penting (Stopwords)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">Import Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-duplikasi-abstrak">Cek Data Duplikasi Abstrak</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kata-tidak-penting-stopwords">Menghapus Kata Tidak Penting (Stopwords)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-vsm-dalam-term-frequency">Membentuk VSM dalam term frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-lda">Model LDA</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-score">Silhouette Score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-vsm-dalam-term-frequency">Membentuk VSM dalam term frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-lda">Model LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-score">Silhouette Score</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -434,9 +421,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>Notebook ini bertujuan untuk melakukan eksplorasi topik pada tugas akhir yang terdapat dalam portal tugas akhir UTM (Trunojoyo University) menggunakan model Latent Dirichlet Allocation (LDA). LDA adalah algoritma dalam pemodelan tema yang dapat membantu mengidentifikasi topik-topik utama yang mungkin ada dalam kumpulan tugas akhir mahasiswa. Dengan menggunakan teknik ini, kita dapat mengeksplorasi struktur topik yang mendasari tanpa harus membaca setiap tugas akhir secara manual</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-modelling-lda">
+<h1>Topic Modelling LDA<a class="headerlink" href="#topic-modelling-lda" title="Permalink to this heading">#</a></h1>
+<p>Notebook ini bertujuan untuk melakukan eksplorasi topik pada tugas akhir yang terdapat dalam portal tugas akhir UTM (Trunojoyo University) menggunakan model Latent Dirichlet Allocation (LDA). LDA adalah algoritma dalam pemodelan tema yang dapat membantu mengidentifikasi topik-topik utama yang mungkin ada dalam kumpulan tugas akhir mahasiswa. Dengan menggunakan teknik ini, kita dapat mengeksplorasi struktur topik yang mendasari tanpa harus membaca setiap tugas akhir secara manual</p>
 <section id="import-data">
-<h1>Import Data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h1>
+<h2>Import Data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -450,7 +439,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-08a1bfa4-8156-4044-b711-3f6ed3e685de" class="colab-df-container">
+  <div id="df-bc949c12-c35b-4193-9c72-48d9df381ac7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -584,7 +573,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-08a1bfa4-8156-4044-b711-3f6ed3e685de')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bc949c12-c35b-4193-9c72-48d9df381ac7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -636,12 +625,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-08a1bfa4-8156-4044-b711-3f6ed3e685de button.colab-df-convert');
+        document.querySelector('#df-bc949c12-c35b-4193-9c72-48d9df381ac7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-08a1bfa4-8156-4044-b711-3f6ed3e685de');
+        const element = document.querySelector('#df-bc949c12-c35b-4193-9c72-48d9df381ac7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -675,9 +664,9 @@ dtype: int64
 </div>
 </section>
 <section id="preprocessing-data">
-<h1>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Permalink to this heading">#</a></h1>
+<h2>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Permalink to this heading">#</a></h2>
 <section id="cleaning-data">
-<h2>Cleaning Data<a class="headerlink" href="#cleaning-data" title="Permalink to this heading">#</a></h2>
+<h3>Cleaning Data<a class="headerlink" href="#cleaning-data" title="Permalink to this heading">#</a></h3>
 <p>Pembersihan data (data cleaning) dilakukan untuk meningkatkan kualitas data dengan menghilangkan atau menangani elemen yang tidak diinginkan atau tidak relevan. Dalam konteks fungsi clean yang diberikan, pembersihan data teks dilakukan untuk tujuan-tujuan berikut:</p>
 <blockquote>
 <div><p>Menghilangkan Noise:</p>
@@ -753,7 +742,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-6cda84a1-66d1-4c81-8b3c-7876ac49cc58" class="colab-df-container">
+  <div id="df-95d4ac94-5a0d-4b83-9a3c-9a0284f2a23e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -832,7 +821,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-6cda84a1-66d1-4c81-8b3c-7876ac49cc58')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-95d4ac94-5a0d-4b83-9a3c-9a0284f2a23e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -884,12 +873,12 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 
     <script>
       const buttonEl =
-        document.querySelector('#df-6cda84a1-66d1-4c81-8b3c-7876ac49cc58 button.colab-df-convert');
+        document.querySelector('#df-95d4ac94-5a0d-4b83-9a3c-9a0284f2a23e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-6cda84a1-66d1-4c81-8b3c-7876ac49cc58');
+        const element = document.querySelector('#df-95d4ac94-5a0d-4b83-9a3c-9a0284f2a23e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -936,7 +925,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 </div>
 </section>
 <section id="cek-data-duplikasi-abstrak">
-<h2>Cek Data Duplikasi Abstrak<a class="headerlink" href="#cek-data-duplikasi-abstrak" title="Permalink to this heading">#</a></h2>
+<h3>Cek Data Duplikasi Abstrak<a class="headerlink" href="#cek-data-duplikasi-abstrak" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove duplicates abstrak</span>
@@ -949,7 +938,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a4ac03cf-a38c-4023-be8a-d6405b553e34" class="colab-df-container">
+  <div id="df-b3f98dd2-ec19-430a-8659-c84af14ebaa3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -983,7 +972,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a4ac03cf-a38c-4023-be8a-d6405b553e34')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b3f98dd2-ec19-430a-8659-c84af14ebaa3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1035,12 +1024,12 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a4ac03cf-a38c-4023-be8a-d6405b553e34 button.colab-df-convert');
+        document.querySelector('#df-b3f98dd2-ec19-430a-8659-c84af14ebaa3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a4ac03cf-a38c-4023-be8a-d6405b553e34');
+        const element = document.querySelector('#df-b3f98dd2-ec19-430a-8659-c84af14ebaa3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1065,7 +1054,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 </div>
 </section>
 <section id="tokenisasi">
-<h2>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h2>
+<h3>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h3>
 <p>Tokenisasi adalah proses memecah teks menjadi unit-unit kecil, seperti kata-kata. Tujuannya adalah untuk memahami struktur teks, melakukan analisis morfologi, mempersiapkan data untuk NLP, ekstraksi informasi, dan meningkatkan kinerja model. Ini adalah langkah dasar dalam pengolahan bahasa alami.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1080,68 +1069,57 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading collection &#39;popular&#39;
 [nltk_data]    | 
 [nltk_data]    | Downloading package cmudict to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/cmudict.zip.
+[nltk_data]    |   Package cmudict is already up-to-date!
 [nltk_data]    | Downloading package gazetteers to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/gazetteers.zip.
+[nltk_data]    |   Package gazetteers is already up-to-date!
 [nltk_data]    | Downloading package genesis to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/genesis.zip.
+[nltk_data]    |   Package genesis is already up-to-date!
 [nltk_data]    | Downloading package gutenberg to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/gutenberg.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package inaugural to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/inaugural.zip.
+[nltk_data]    |   Package gutenberg is already up-to-date!
+[nltk_data]    | Downloading package inaugural to /root/nltk_data...
+[nltk_data]    |   Package inaugural is already up-to-date!
 [nltk_data]    | Downloading package movie_reviews to
 [nltk_data]    |     /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/movie_reviews.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package names to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/names.zip.
+[nltk_data]    |   Package movie_reviews is already up-to-date!
+[nltk_data]    | Downloading package names to /root/nltk_data...
+[nltk_data]    |   Package names is already up-to-date!
 [nltk_data]    | Downloading package shakespeare to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/shakespeare.zip.
+[nltk_data]    |   Package shakespeare is already up-to-date!
 [nltk_data]    | Downloading package stopwords to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/stopwords.zip.
+[nltk_data]    |   Package stopwords is already up-to-date!
 [nltk_data]    | Downloading package treebank to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/treebank.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package twitter_samples to
+[nltk_data]    |   Package treebank is already up-to-date!
+[nltk_data]    | Downloading package twitter_samples to
 [nltk_data]    |     /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/twitter_samples.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package omw to /root/nltk_data...
+[nltk_data]    |   Package twitter_samples is already up-to-date!
+[nltk_data]    | Downloading package omw to /root/nltk_data...
+[nltk_data]    |   Package omw is already up-to-date!
 [nltk_data]    | Downloading package omw-1.4 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet to /root/nltk_data...
+[nltk_data]    |   Package omw-1.4 is already up-to-date!
+[nltk_data]    | Downloading package wordnet to /root/nltk_data...
+[nltk_data]    |   Package wordnet is already up-to-date!
 [nltk_data]    | Downloading package wordnet2021 to /root/nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package wordnet2021 is already up-to-date!
 [nltk_data]    | Downloading package wordnet31 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet_ic to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/wordnet_ic.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package words to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/words.zip.
+[nltk_data]    |   Package wordnet31 is already up-to-date!
+[nltk_data]    | Downloading package wordnet_ic to /root/nltk_data...
+[nltk_data]    |   Package wordnet_ic is already up-to-date!
+[nltk_data]    | Downloading package words to /root/nltk_data...
+[nltk_data]    |   Package words is already up-to-date!
 [nltk_data]    | Downloading package maxent_ne_chunker to
 [nltk_data]    |     /root/nltk_data...
-[nltk_data]    |   Unzipping chunkers/maxent_ne_chunker.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package punkt to /root/nltk_data...
-[nltk_data]    |   Unzipping tokenizers/punkt.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package snowball_data to
+[nltk_data]    |   Package maxent_ne_chunker is already up-to-date!
+[nltk_data]    | Downloading package punkt to /root/nltk_data...
+[nltk_data]    |   Package punkt is already up-to-date!
+[nltk_data]    | Downloading package snowball_data to
 [nltk_data]    |     /root/nltk_data...
+[nltk_data]    |   Package snowball_data is already up-to-date!
 [nltk_data]    | Downloading package averaged_perceptron_tagger to
 [nltk_data]    |     /root/nltk_data...
-[nltk_data]    |   Unzipping taggers/averaged_perceptron_tagger.zip.
+[nltk_data]    |   Package averaged_perceptron_tagger is already up-
+[nltk_data]    |       to-date!
 [nltk_data]    | 
 [nltk_data]  Done downloading collection popular
 </pre></div>
@@ -1161,7 +1139,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-50368566-88f2-4965-a1e5-51b223f8af4f" class="colab-df-container">
+  <div id="df-48ded268-f5f9-45e9-9db0-f62946ecb117" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1216,7 +1194,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-50368566-88f2-4965-a1e5-51b223f8af4f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-48ded268-f5f9-45e9-9db0-f62946ecb117')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1268,12 +1246,12 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 
     <script>
       const buttonEl =
-        document.querySelector('#df-50368566-88f2-4965-a1e5-51b223f8af4f button.colab-df-convert');
+        document.querySelector('#df-48ded268-f5f9-45e9-9db0-f62946ecb117 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-50368566-88f2-4965-a1e5-51b223f8af4f');
+        const element = document.querySelector('#df-48ded268-f5f9-45e9-9db0-f62946ecb117');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1298,7 +1276,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 </div>
 </section>
 <section id="menghapus-kata-tidak-penting-stopwords">
-<h2>Menghapus Kata Tidak Penting (Stopwords)<a class="headerlink" href="#menghapus-kata-tidak-penting-stopwords" title="Permalink to this heading">#</a></h2>
+<h3>Menghapus Kata Tidak Penting (Stopwords)<a class="headerlink" href="#menghapus-kata-tidak-penting-stopwords" title="Permalink to this heading">#</a></h3>
 <p>Stopword digunakan untuk menghapus kata-kata umum yang cenderung tidak memberikan nilai tambah dalam analisis teks. Tujuannya adalah menyederhanakan data dan meningkatkan fokus pada kata-kata kunci yang lebih informatif.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1336,7 +1314,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-02f6c5c2-e6a0-4802-b9ff-22a8d727336d" class="colab-df-container">
+  <div id="df-65dc43ba-a59a-405c-b165-5958620d6663" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1391,7 +1369,7 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-02f6c5c2-e6a0-4802-b9ff-22a8d727336d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-65dc43ba-a59a-405c-b165-5958620d6663')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1443,12 +1421,12 @@ Tujuan: Persiapan data untuk langkah-langkah berikutnya dan mengatasi nilai yang
 
     <script>
       const buttonEl =
-        document.querySelector('#df-02f6c5c2-e6a0-4802-b9ff-22a8d727336d button.colab-df-convert');
+        document.querySelector('#df-65dc43ba-a59a-405c-b165-5958620d6663 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-02f6c5c2-e6a0-4802-b9ff-22a8d727336d');
+        const element = document.querySelector('#df-65dc43ba-a59a-405c-b165-5958620d6663');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1507,7 +1485,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-24d87ac5-6c3c-41ee-a75e-8352b3efff3a" class="colab-df-container">
+  <div id="df-87a62397-e356-488b-9833-b0cc5e300ed0" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1641,7 +1619,7 @@ dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-24d87ac5-6c3c-41ee-a75e-8352b3efff3a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-87a62397-e356-488b-9833-b0cc5e300ed0')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1693,12 +1671,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-24d87ac5-6c3c-41ee-a75e-8352b3efff3a button.colab-df-convert');
+        document.querySelector('#df-87a62397-e356-488b-9833-b0cc5e300ed0 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-24d87ac5-6c3c-41ee-a75e-8352b3efff3a');
+        const element = document.querySelector('#df-87a62397-e356-488b-9833-b0cc5e300ed0');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1752,7 +1730,7 @@ Name: abstrak_tokens, dtype: object
 </section>
 </section>
 <section id="membentuk-vsm-dalam-term-frequency">
-<h1>Membentuk VSM dalam term frequency<a class="headerlink" href="#membentuk-vsm-dalam-term-frequency" title="Permalink to this heading">#</a></h1>
+<h2>Membentuk VSM dalam term frequency<a class="headerlink" href="#membentuk-vsm-dalam-term-frequency" title="Permalink to this heading">#</a></h2>
 <p>Dengan menggunakan TF, kode tersebut menciptakan representasi numerik dari seberapa sering kata-kata tertentu muncul dalam setiap dokumen. Ini adalah langkah awal dalam pembuatan model Vector Space Model (VSM) untuk analisis teks, di mana matriks TF akan menjadi dasar bagi perhitungan lebih lanjut, seperti TF-IDF atau model-machine learning untuk klasifikasi teks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1769,7 +1747,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4cbed1fb-1ac6-4ee7-a8f8-a9da0c2ed36a" class="colab-df-container">
+  <div id="df-f9131c17-a3bc-44fb-968e-94be0e795d8a" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2083,7 +2061,7 @@ Name: abstrak_tokens, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4cbed1fb-1ac6-4ee7-a8f8-a9da0c2ed36a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f9131c17-a3bc-44fb-968e-94be0e795d8a')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2135,12 +2113,12 @@ Name: abstrak_tokens, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4cbed1fb-1ac6-4ee7-a8f8-a9da0c2ed36a button.colab-df-convert');
+        document.querySelector('#df-f9131c17-a3bc-44fb-968e-94be0e795d8a button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4cbed1fb-1ac6-4ee7-a8f8-a9da0c2ed36a');
+        const element = document.querySelector('#df-f9131c17-a3bc-44fb-968e-94be0e795d8a');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2165,7 +2143,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 </section>
 <section id="model-lda">
-<h1>Model LDA<a class="headerlink" href="#model-lda" title="Permalink to this heading">#</a></h1>
+<h2>Model LDA<a class="headerlink" href="#model-lda" title="Permalink to this heading">#</a></h2>
 <p>Topic modeling LDA memanfaatkan probabilitas dan statistik untuk menemukan struktur topikal dalam koleksi dokumen. Prosesnya melibatkan pemilihan jumlah topik, pelatihan model, dan interpretasi hasil untuk pemahaman yang lebih baik tentang informasi dalam data teks.</p>
 <p><span class="math notranslate nohighlight">\( P(z_{d,n} = k | w_{d,n}, \alpha, \beta) \propto \frac{\sum_{k'} (C_{k',n}^{(d)} + \alpha)}{C_{k,n}^{(d)} + \alpha} \cdot \frac{\sum_{v} (C_{v,k}^{(w)} + \beta)}{C_{w_{d,n},k}^{(w)} + \beta} \)</span></p>
 <p><span class="math notranslate nohighlight">\( P(z_{d,n} = k | w_{d,n}, \alpha, \beta): \)</span> Probabilitas posterior bahwa kata ke-<span class="math notranslate nohighlight">\(n\)</span> dalam dokumen <span class="math notranslate nohighlight">\(d\)</span> memiliki topik <span class="math notranslate nohighlight">\(k\)</span>, diberikan kata tersebut <span class="math notranslate nohighlight">\(w_{d,n}\)</span>, parameter <span class="math notranslate nohighlight">\(\alpha\)</span>, dan parameter <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
@@ -2200,7 +2178,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-88fb48bb-b238-4c02-bd36-d95c43ad9d12" class="colab-df-container">
+  <div id="df-70e28033-038d-4c72-a093-94f1c513e554" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2514,7 +2492,7 @@ Name: abstrak_tokens, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-88fb48bb-b238-4c02-bd36-d95c43ad9d12')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-70e28033-038d-4c72-a093-94f1c513e554')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2566,12 +2544,12 @@ Name: abstrak_tokens, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-88fb48bb-b238-4c02-bd36-d95c43ad9d12 button.colab-df-convert');
+        document.querySelector('#df-70e28033-038d-4c72-a093-94f1c513e554 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-88fb48bb-b238-4c02-bd36-d95c43ad9d12');
+        const element = document.querySelector('#df-70e28033-038d-4c72-a093-94f1c513e554');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2637,7 +2615,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-44961df5-5546-477c-a253-08549911996e" class="colab-df-container">
+  <div id="df-5e94765b-4105-44c3-b77e-99be21cce1ae" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2759,7 +2737,7 @@ Name: abstrak_tokens, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-44961df5-5546-477c-a253-08549911996e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5e94765b-4105-44c3-b77e-99be21cce1ae')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2811,12 +2789,12 @@ Name: abstrak_tokens, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-44961df5-5546-477c-a253-08549911996e button.colab-df-convert');
+        document.querySelector('#df-5e94765b-4105-44c3-b77e-99be21cce1ae button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-44961df5-5546-477c-a253-08549911996e');
+        const element = document.querySelector('#df-5e94765b-4105-44c3-b77e-99be21cce1ae');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2871,7 +2849,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-80f03cf7-4695-4155-b833-adeea7651cd8" class="colab-df-container">
+  <div id="df-fa7ed593-2964-4ffb-8e11-d1c101105661" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2993,7 +2971,7 @@ Name: abstrak_tokens, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-80f03cf7-4695-4155-b833-adeea7651cd8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fa7ed593-2964-4ffb-8e11-d1c101105661')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3045,12 +3023,12 @@ Name: abstrak_tokens, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-80f03cf7-4695-4155-b833-adeea7651cd8 button.colab-df-convert');
+        document.querySelector('#df-fa7ed593-2964-4ffb-8e11-d1c101105661 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-80f03cf7-4695-4155-b833-adeea7651cd8');
+        const element = document.querySelector('#df-fa7ed593-2964-4ffb-8e11-d1c101105661');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3075,7 +3053,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 </section>
 <section id="cluster">
-<h1>Cluster<a class="headerlink" href="#cluster" title="Permalink to this heading">#</a></h1>
+<h2>Cluster<a class="headerlink" href="#cluster" title="Permalink to this heading">#</a></h2>
 <p>clustering dilakukan menggunakan algoritma KMeans setelah penerapan Latent Dirichlet Allocation (LDA) pada data teks. Dengan memanfaatkan representasi vektor TF-IDF atau hasil LDA, KMeans mengelompokkan dokumen ke dalam tiga cluster, memfasilitasi analisis dan interpretasi dokumen dengan mengidentifikasi kelompok yang potensial memiliki kesamaan topik atau konten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3109,7 +3087,7 @@ Name: abstrak_tokens, dtype: object
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-1688b1c4-a9fe-481a-b045-a8956b3905ac" class="colab-df-container">
+  <div id="df-fa8ca189-a64c-4610-9d49-6a2fa91d71ba" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3144,7 +3122,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.001198</td>
       <td>0.001198</td>
       <td>0.001198</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -3153,7 +3131,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.996243</td>
       <td>0.000939</td>
       <td>0.000939</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -3162,7 +3140,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.000889</td>
       <td>0.000889</td>
       <td>0.000889</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -3171,7 +3149,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.001460</td>
       <td>0.001460</td>
       <td>0.001460</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3180,7 +3158,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.001170</td>
       <td>0.001170</td>
       <td>0.001170</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -3198,7 +3176,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.000823</td>
       <td>0.996707</td>
       <td>0.000823</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>817</th>
@@ -3207,7 +3185,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.351363</td>
       <td>0.001198</td>
       <td>0.001198</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>818</th>
@@ -3216,7 +3194,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.000639</td>
       <td>0.609543</td>
       <td>0.000639</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>819</th>
@@ -3225,7 +3203,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.000778</td>
       <td>0.242264</td>
       <td>0.755401</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>820</th>
@@ -3234,7 +3212,7 @@ Name: abstrak_tokens, dtype: object
       <td>0.001118</td>
       <td>0.001118</td>
       <td>0.001118</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -3243,7 +3221,7 @@ Name: abstrak_tokens, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1688b1c4-a9fe-481a-b045-a8956b3905ac')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fa8ca189-a64c-4610-9d49-6a2fa91d71ba')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3295,12 +3273,12 @@ Name: abstrak_tokens, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1688b1c4-a9fe-481a-b045-a8956b3905ac button.colab-df-convert');
+        document.querySelector('#df-fa8ca189-a64c-4610-9d49-6a2fa91d71ba button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1688b1c4-a9fe-481a-b045-a8956b3905ac');
+        const element = document.querySelector('#df-fa8ca189-a64c-4610-9d49-6a2fa91d71ba');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3325,7 +3303,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 </section>
 <section id="silhouette-score">
-<h1>Silhouette Score<a class="headerlink" href="#silhouette-score" title="Permalink to this heading">#</a></h1>
+<h2>Silhouette Score<a class="headerlink" href="#silhouette-score" title="Permalink to this heading">#</a></h2>
 <p>silhouette score memberikan gambaran seberapa baik suatu cluster terbentuk dan seberapa baik objek-objek dalam cluster tersebut saling berdekatan dibandingkan dengan cluster lainnya. Tujuannya adalah membantu evaluasi dan pemilihan model clustering yang baik, terutama dalam algoritma yang memerlukan pengaturan parameter seperti KMeans, di mana kita perlu menentukan jumlah cluster yang optimal. Silhouette score dapat membantu mengidentifikasi jumlah cluster yang menghasilkan pembagian yang paling baik.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3343,6 +3321,7 @@ Name: abstrak_tokens, dtype: object
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3408,20 +3387,19 @@ Name: abstrak_tokens, dtype: object
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-duplikasi-abstrak">Cek Data Duplikasi Abstrak</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kata-tidak-penting-stopwords">Menghapus Kata Tidak Penting (Stopwords)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">Import Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-duplikasi-abstrak">Cek Data Duplikasi Abstrak</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kata-tidak-penting-stopwords">Menghapus Kata Tidak Penting (Stopwords)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-vsm-dalam-term-frequency">Membentuk VSM dalam term frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-lda">Model LDA</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-score">Silhouette Score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-vsm-dalam-term-frequency">Membentuk VSM dalam term frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-lda">Model LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-score">Silhouette Score</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

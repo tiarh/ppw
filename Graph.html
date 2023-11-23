@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Crawl Detik &#8212; PPW</title>
+    <title>Graph Ektraksi Kata &#8212; PPW</title>
   
   
   
@@ -170,21 +170,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LDA.html">Import Data</a></li>
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="LDA.html">Topic Modelling LDA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="detik-summarization.html">Detik Summarization</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawl Detik</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Graph Ektraksi Kata</a></li>
 </ul>
 
     </div>
@@ -399,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Crawl Detik</h1>
+    <h1>Graph Ektraksi Kata</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,16 +397,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawl Detik</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata">Ekstraksi kata</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-graph">Membentuk Graph</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-eigenvector-pagerank-betweenness-centrality">Closeness, Eigenvector, Pagerank, Betweenness Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">Pagerank Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvector-centrality">Eigenvector Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenes-centrality">Betweenes Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crawl-detik">Crawl Detik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata">Ekstraksi kata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-graph">Membentuk Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-eigenvector-pagerank-betweenness-centrality">Closeness, Eigenvector, Pagerank, Betweenness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">Pagerank Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvector-centrality">Eigenvector Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenes-centrality">Betweenes Centrality</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -429,8 +416,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="crawl-detik">
-<h1>Crawl Detik<a class="headerlink" href="#crawl-detik" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="graph-ektraksi-kata">
+<h1>Graph Ektraksi Kata<a class="headerlink" href="#graph-ektraksi-kata" title="Permalink to this heading">#</a></h1>
+<section id="crawl-detik">
+<h2>Crawl Detik<a class="headerlink" href="#crawl-detik" title="Permalink to this heading">#</a></h2>
 <p>Program ini, “Detik News Scraper”, dirancang untuk mengambil informasi dari situs <a class="reference external" href="http://detik.com">detik.com</a> terkait topik berita yang diinginkan. Pengguna memasukkan topik, program mengambil URL berita, dan kemudian ekstrak informasi seperti judul, penulis, tanggal, dan isi berita.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -544,7 +533,7 @@ document.write(`
 </div>
 </section>
 <section id="ekstraksi-kata">
-<h1>Ekstraksi kata<a class="headerlink" href="#ekstraksi-kata" title="Permalink to this heading">#</a></h1>
+<h2>Ekstraksi kata<a class="headerlink" href="#ekstraksi-kata" title="Permalink to this heading">#</a></h2>
 <p>fungsi build_co_occurrence_matrix, kata-kata yang muncul bersamaan dalam jendela setiap kata direkam dalam matriks co-occurrence. Nilai dalam matriks menunjukkan seberapa sering kata-kata tersebut muncul bersamaan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2744,7 +2733,7 @@ document.write(`
 </div>
 </section>
 <section id="membentuk-graph">
-<h1>Membentuk Graph<a class="headerlink" href="#membentuk-graph" title="Permalink to this heading">#</a></h1>
+<h2>Membentuk Graph<a class="headerlink" href="#membentuk-graph" title="Permalink to this heading">#</a></h2>
 <p>Graph yang menghubungkan kata per kata dari hasil matriks co-occurrence merupakan representasi visual dari hubungan antara kata-kata dalam teks berdasarkan seberapa sering kata-kata tersebut muncul bersamaan dalam suatu jendela yang ditentukan. Dalam konteks ini, setiap kata dalam teks direpresentasikan sebagai simpul (node) dalam graf, dan hubungan antar kata direpresentasikan oleh tepi (edge) berdasarkan matriks co-occurrence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2770,7 +2759,7 @@ document.write(`
 </div>
 </section>
 <section id="closeness-eigenvector-pagerank-betweenness-centrality">
-<h1>Closeness, Eigenvector, Pagerank, Betweenness Centrality<a class="headerlink" href="#closeness-eigenvector-pagerank-betweenness-centrality" title="Permalink to this heading">#</a></h1>
+<h2>Closeness, Eigenvector, Pagerank, Betweenness Centrality<a class="headerlink" href="#closeness-eigenvector-pagerank-betweenness-centrality" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">closeness_centrality</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
@@ -2783,7 +2772,7 @@ document.write(`
 </div>
 </section>
 <section id="closeness-centrality">
-<h1>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Permalink to this heading">#</a></h1>
+<h2>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Permalink to this heading">#</a></h2>
 <p>Closeness centrality adalah sebuah metrik dalam analisis jaringan yang mengukur seberapa cepat suatu simpul (node) dapat diakses oleh simpul-simpul lain dalam jaringan. Dalam konteks graf, closeness centrality didefinisikan sebagai invers dari total jarak terpendek dari simpul tersebut ke semua simpul lainnya dalam jaringan. Dengan kata lain, simpul dengan closeness centrality yang tinggi berarti lebih mudah diakses atau lebih dekat secara struktural dengan simpul-simpul lainnya dalam jaringan.</p>
 <p>Formula closeness centrality untuk simpul  dalam sebuah graf terhubung adalah sebagai berikut:
 <span class="math notranslate nohighlight">\(C(u) = \frac{1}{\sum_{v=1}^{n} d(u, v)}\)</span></p>
@@ -2978,7 +2967,7 @@ Kata: terkait
 </div>
 </section>
 <section id="pagerank-centrality">
-<h1>Pagerank Centrality<a class="headerlink" href="#pagerank-centrality" title="Permalink to this heading">#</a></h1>
+<h2>Pagerank Centrality<a class="headerlink" href="#pagerank-centrality" title="Permalink to this heading">#</a></h2>
 <p>PageRank centrality adalah suatu metode untuk mengukur pentingnya simpul (node) dalam suatu jaringan berbasis graf. Metode ini awalnya dikembangkan oleh Larry Page dan Sergey Brin untuk menilai relevansi halaman web dalam mesin pencari Google, dan kemudian diadopsi dalam analisis jaringan umumnya. PageRank centrality mengukur seberapa penting atau otoritatif suatu simpul dengan memperhitungkan jumlah dan kualitas koneksi yang dimilikinya. Intinya, simpul-simpul yang dihubungkan dengan simpul lain yang juga memiliki keterhubungan yang tinggi akan mendapatkan skor PageRank yang lebih tinggi.</p>
 <p>Rumus umum untuk menghitung nilai PageRank  dalam sebuah graf adalah:
 <span class="math notranslate nohighlight">\(PR(A) = (1-d) + d \left( \frac{PR(T1)}{C(T1)} + \frac{PR(T2)}{C(T2)} + ... + \frac{PR(Tn)}{C(Tn)} \right)\)</span></p>
@@ -3176,7 +3165,7 @@ Kata: terkait
 </div>
 </section>
 <section id="eigenvector-centrality">
-<h1>Eigenvector Centrality<a class="headerlink" href="#eigenvector-centrality" title="Permalink to this heading">#</a></h1>
+<h2>Eigenvector Centrality<a class="headerlink" href="#eigenvector-centrality" title="Permalink to this heading">#</a></h2>
 <p>Eigenvector centrality adalah metode pengukuran kepentingan simpul dalam suatu jaringan yang mempertimbangkan kualitas koneksi dari simpul tersebut. Pendekatan ini memberikan bobot yang lebih tinggi pada simpul yang terhubung dengan simpul-simpul lain yang juga memiliki kepentingan tinggi. Dengan kata lain, simpul dengan eigenvector centrality yang tinggi tidak hanya memiliki banyak koneksi, tetapi juga terhubung dengan simpul-simpul penting dalam jaringan.</p>
 <p>Eigenvector centrality dihitung berdasarkan nilai eigen dari matriks adjasensi atau matriks berbobot yang merepresentasikan struktur jaringan. Nilai eigen ini memberikan informasi tentang distribusi kepentingan simpul dalam jaringan. Simpul dengan nilai eigen yang tinggi cenderung terhubung dengan simpul-simpul lain yang juga memiliki nilai eigen yang tinggi.</p>
 <p>Rumus umum untuk menghitung eigenvector centrality dalam suatu jaringan adalah sebagai berikut:</p>
@@ -3373,7 +3362,7 @@ Kata: terkait
 </div>
 </section>
 <section id="betweenes-centrality">
-<h1>Betweenes Centrality<a class="headerlink" href="#betweenes-centrality" title="Permalink to this heading">#</a></h1>
+<h2>Betweenes Centrality<a class="headerlink" href="#betweenes-centrality" title="Permalink to this heading">#</a></h2>
 <p>Betweenness centrality adalah metode pengukuran kepentingan simpul dalam suatu jaringan berbasis graf yang mengukur seberapa sering suatu simpul menjadi perantara (intermediary) pada lintasan terpendek antara dua simpul lain dalam jaringan. Dengan kata lain, simpul dengan betweenness centrality yang tinggi cenderung memiliki peran penting dalam menghubungkan bagian-bagian yang berbeda dalam jaringan.
 rumusnya sebagai berikut:</p>
 <p><span class="math notranslate nohighlight">\(C_B(v) =\sum_{s,t \in V} \frac{\sigma(s, t|v)}{\sigma(s, t)}\)</span></p>
@@ -3569,6 +3558,7 @@ Kata: terkait
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3624,16 +3614,15 @@ Kata: terkait
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawl Detik</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata">Ekstraksi kata</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-graph">Membentuk Graph</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-eigenvector-pagerank-betweenness-centrality">Closeness, Eigenvector, Pagerank, Betweenness Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">Pagerank Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvector-centrality">Eigenvector Centrality</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenes-centrality">Betweenes Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crawl-detik">Crawl Detik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata">Ekstraksi kata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-graph">Membentuk Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-eigenvector-pagerank-betweenness-centrality">Closeness, Eigenvector, Pagerank, Betweenness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">Pagerank Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvector-centrality">Eigenvector Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenes-centrality">Betweenes Centrality</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
