@@ -449,8 +449,8 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sentence-transformers
   Downloading sentence-transformers-2.2.2.tar.gz (85 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/86.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ <span class=" -Color -Color-Green">81.9/86.0 kB</span> <span class=" -Color -Color-Red">2.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">86.0/86.0 kB</span> <span class=" -Color -Color-Red">2.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ <span class=" -Color -Color-Green">81.9/86.0 kB</span> <span class=" -Color -Color-Red">2.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">86.0/86.0 kB</span> <span class=" -Color -Color-Red">2.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -468,12 +468,10 @@ Requirement already satisfied: nltk in /usr/local/lib/python3.10/dist-packages (
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sentencepiece (from sentence-transformers)
   Downloading sentencepiece-0.1.99-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">38.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">25.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ <span class=" -Color -Color-Green">1.2/1.3 MB</span> <span class=" -Color -Color-Red">34.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">27.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: huggingface-hub&gt;=0.4.0 in /usr/local/lib/python3.10/dist-packages (from sentence-transformers) (0.19.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (3.13.1)
+Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (3.13.1)
 Requirement already satisfied: fsspec&gt;=2023.5.0 in /usr/local/lib/python3.10/dist-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (2023.6.0)
 Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (2.31.0)
 Requirement already satisfied: pyyaml&gt;=5.1 in /usr/local/lib/python3.10/dist-packages (from huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (6.0.1)
@@ -492,10 +490,10 @@ Requirement already satisfied: click in /usr/local/lib/python3.10/dist-packages 
 Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages (from nltk-&gt;sentence-transformers) (1.3.2)
 Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn-&gt;sentence-transformers) (3.2.0)
 Requirement already satisfied: pillow!=8.3.*,&gt;=5.3.0 in /usr/local/lib/python3.10/dist-packages (from torchvision-&gt;sentence-transformers) (9.4.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2-&gt;torch&gt;=1.6.0-&gt;sentence-transformers) (2.1.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2-&gt;torch&gt;=1.6.0-&gt;sentence-transformers) (2.1.3)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (3.3.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (3.3.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (3.6)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (2.0.7)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;huggingface-hub&gt;=0.4.0-&gt;sentence-transformers) (2023.11.17)
@@ -504,7 +502,7 @@ Building wheels for collected packages: sentence-transformers
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for sentence-transformers (setup.py) ... ?25l?25hdone
-  Created wheel for sentence-transformers: filename=sentence_transformers-2.2.2-py3-none-any.whl size=125923 sha256=56aa44cfa6dd03ff3b740a4d74fd85e21aa95c0bbaa6a269c250a817aa6f0d7c
+  Created wheel for sentence-transformers: filename=sentence_transformers-2.2.2-py3-none-any.whl size=125923 sha256=d3ee619436d1b396af9e568e41b0583caea9a6d1b9def432b854396877f58d23
   Stored in directory: /root/.cache/pip/wheels/62/f2/10/1e606fd5f02395388f74e7462910fe851042f97238cbbd902f
 Successfully built sentence-transformers
 </pre></div>
@@ -516,8 +514,8 @@ Successfully built sentence-transformers
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/MartinoMensio/spacy-sentence-bert.git
-  Cloning https://github.com/MartinoMensio/spacy-sentence-bert.git to /tmp/pip-req-build-o952a120
-  Running command git clone --filter=blob:none --quiet https://github.com/MartinoMensio/spacy-sentence-bert.git /tmp/pip-req-build-o952a120
+  Cloning https://github.com/MartinoMensio/spacy-sentence-bert.git to /tmp/pip-req-build-i_olpcvy
+  Running command git clone --filter=blob:none --quiet https://github.com/MartinoMensio/spacy-sentence-bert.git /tmp/pip-req-build-i_olpcvy
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Resolved https://github.com/MartinoMensio/spacy-sentence-bert.git to commit 9fb25f92b5be77d42921a66fda2c54caa3199925
@@ -579,7 +577,9 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2-&gt;spacy&lt;4.0.0,&gt;=3.0.0-&gt;spacy-sentence-bert==0.1.2) (2.1.3)
 Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages (from nltk-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2) (1.3.2)
 Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2) (3.2.0)
-Requirement already satisfied: pillow!=8.3.*,&gt;=5.3.0 in /usr/local/lib/python3.10/dist-packages (from torchvision-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2) (9.4.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pillow!=8.3.*,&gt;=5.3.0 in /usr/local/lib/python3.10/dist-packages (from torchvision-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2) (9.4.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.10/dist-packages (from sympy-&gt;torch&gt;=1.6.0-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2) (1.3.0)
@@ -587,8 +587,8 @@ Building wheels for collected packages: spacy-sentence-bert
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for spacy-sentence-bert (setup.py) ... ?25l?25hdone
-  Created wheel for spacy-sentence-bert: filename=spacy_sentence_bert-0.1.2-py3-none-any.whl size=28221 sha256=4c6de0e349e07b7342febf83815357f421bb7943b18eb71747a207af075b5f9d
-  Stored in directory: /tmp/pip-ephem-wheel-cache-zfo5my88/wheels/d0/81/4e/266d04d398db7c18f0115b4ab3c251db17bd9da9e607f317e5
+  Created wheel for spacy-sentence-bert: filename=spacy_sentence_bert-0.1.2-py3-none-any.whl size=28221 sha256=8e1d6566e95c6a72724e6bfcb43475c620e3027d7ea833f7e15f872b0d67cd97
+  Stored in directory: /tmp/pip-ephem-wheel-cache-metrdh10/wheels/d0/81/4e/266d04d398db7c18f0115b4ab3c251db17bd9da9e607f317e5
 Successfully built spacy-sentence-bert
 </pre></div>
 </div>
@@ -608,24 +608,24 @@ Successfully installed spacy-sentence-bert-0.1.2
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting spacy&lt;3.1.0,&gt;=3.0.3 (from xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
   Downloading spacy-3.0.9-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.9 MB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.9 MB</span> <span class=" -Color -Color-Red">1.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:06</span>
-     ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.3/5.9 MB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/5.9 MB</span> <span class=" -Color -Color-Red">3.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+     ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.4/5.9 MB</span> <span class=" -Color -Color-Red">6.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.7/5.9 MB</span> <span class=" -Color -Color-Red">7.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/5.9 MB</span> <span class=" -Color -Color-Red">6.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/5.9 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/5.9 MB</span> <span class=" -Color -Color-Red">8.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/5.9 MB</span> <span class=" -Color -Color-Red">9.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.5/5.9 MB</span> <span class=" -Color -Color-Red">10.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.2/5.9 MB</span> <span class=" -Color -Color-Red">11.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.1/5.9 MB</span> <span class=" -Color -Color-Red">12.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">5.0/5.9 MB</span> <span class=" -Color -Color-Red">13.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/5.9 MB</span> <span class=" -Color -Color-Red">8.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.4/5.9 MB</span> <span class=" -Color -Color-Red">8.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.9/5.9 MB</span> <span class=" -Color -Color-Red">9.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.5/5.9 MB</span> <span class=" -Color -Color-Red">10.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.2/5.9 MB</span> <span class=" -Color -Color-Red">11.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.0/5.9 MB</span> <span class=" -Color -Color-Red">12.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ <span class=" -Color -Color-Green">4.9/5.9 MB</span> <span class=" -Color -Color-Red">13.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">5.9/5.9 MB</span> <span class=" -Color -Color-Red">15.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.9/5.9 MB</span> <span class=" -Color -Color-Red">14.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">5.9/5.9 MB</span> <span class=" -Color -Color-Red">14.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">5.9/5.9 MB</span> <span class=" -Color -Color-Red">14.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.9/5.9 MB</span> <span class=" -Color -Color-Red">13.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: spacy-sentence-bert==0.1.2 in /usr/local/lib/python3.10/dist-packages (from xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (0.1.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: spacy-sentence-bert==0.1.2 in /usr/local/lib/python3.10/dist-packages (from xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (0.1.2)
 Requirement already satisfied: sentence-transformers in /usr/local/lib/python3.10/dist-packages (from spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (2.2.2)
 Requirement already satisfied: protobuf in /usr/local/lib/python3.10/dist-packages (from spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (3.20.3)
 Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.5 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (3.0.12)
@@ -637,15 +637,15 @@ Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /usr/local/lib/pyt
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting thinc&lt;8.1.0,&gt;=8.0.3 (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
   Downloading thinc-8.0.17-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (659 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/659.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">659.5/659.5 kB</span> <span class=" -Color -Color-Red">21.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">659.5/659.5 kB</span> <span class=" -Color -Color-Red">24.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: blis&lt;0.8.0,&gt;=0.4.0 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (0.7.11)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wasabi&lt;1.1.0,&gt;=0.8.1 (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
+Collecting wasabi&lt;1.1.0,&gt;=0.8.1 (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
   Downloading wasabi-0.10.1-py3-none-any.whl (26 kB)
 Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.1 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (2.4.8)
 Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.4 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (2.0.10)
-Collecting typer&lt;0.4.0,&gt;=0.3.0 (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting typer&lt;0.4.0,&gt;=0.3.0 (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
   Downloading typer-0.3.2-py3-none-any.whl (21 kB)
 Requirement already satisfied: pathy&gt;=0.3.5 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (0.10.3)
 Requirement already satisfied: smart-open&lt;7.0.0,&gt;=5.2.1 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (6.4.0)
@@ -657,7 +657,7 @@ Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /usr/local/lib/p
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pydantic!=1.8,!=1.8.1,&lt;1.9.0,&gt;=1.7.4 (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
   Downloading pydantic-1.8.2-py3-none-any.whl (126 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/126.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">126.0/126.0 kB</span> <span class=" -Color -Color-Red">11.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">126.0/126.0 kB</span> <span class=" -Color -Color-Red">14.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (3.1.2)
 Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (67.7.2)
 Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (23.2)
@@ -671,7 +671,7 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.1
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting click&lt;7.2.0,&gt;=7.1.1 (from typer&lt;0.4.0,&gt;=0.3.0-&gt;spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2)
   Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/82.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">82.8/82.8 kB</span> <span class=" -Color -Color-Red">7.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">82.8/82.8 kB</span> <span class=" -Color -Color-Red">9.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2-&gt;spacy&lt;3.1.0,&gt;=3.0.3-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (2.1.3)
 Requirement already satisfied: transformers&lt;5.0.0,&gt;=4.6.0 in /usr/local/lib/python3.10/dist-packages (from sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (4.35.2)
 Requirement already satisfied: torch&gt;=1.6.0 in /usr/local/lib/python3.10/dist-packages (from sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (2.1.0+cu118)
@@ -695,7 +695,21 @@ Requirement already satisfied: triton==2.1.0 in /usr/local/lib/python3.10/dist-p
 Requirement already satisfied: tokenizers&lt;0.19,&gt;=0.14 in /usr/local/lib/python3.10/dist-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (0.15.0)
 Requirement already satisfied: safetensors&gt;=0.3.1 in /usr/local/lib/python3.10/dist-packages (from transformers&lt;5.0.0,&gt;=4.6.0-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (0.4.1)
 Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages (from nltk-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (1.3.2)
-Traceback (most recent call last):
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (3.2.0)
+Requirement already satisfied: pillow!=8.3.*,&gt;=5.3.0 in /usr/local/lib/python3.10/dist-packages (from torchvision-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (9.4.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.10/dist-packages (from sympy-&gt;torch&gt;=1.6.0-&gt;sentence-transformers-&gt;spacy-sentence-bert==0.1.2-&gt;xx-paraphrase-xlm-r-multilingual-v1==0.1.2) (1.3.0)
+Building wheels for collected packages: xx-paraphrase-xlm-r-multilingual-v1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for xx-paraphrase-xlm-r-multilingual-v1 (setup.py) ... ?25l?25hdone
+  Created wheel for xx-paraphrase-xlm-r-multilingual-v1: filename=xx_paraphrase_xlm_r_multilingual_v1-0.1.2-py3-none-any.whl size=13387 sha256=cd35c23020e32f7670f45e978cbd3b316c63d0a9a4b431737d819727c223672e
+  Stored in directory: /root/.cache/pip/wheels/16/d7/dd/30d174b5340d6bf32be03914ca3be059ae41a3faddce78e9b9
+Successfully built xx-paraphrase-xlm-r-multilingual-v1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 3108, in _dep_map
     return self.__dep_map
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 2901, in __getattr__
@@ -709,24 +723,14 @@ Traceback (most recent call last):
     status = run_func(*args)
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/req_command.py&quot;, line 242, in wrapper
     return func(self, options, args)
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/commands/install.py&quot;, line 377, in run
-    requirement_set = resolver.resolve(
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/resolution/resolvelib/resolver.py&quot;, line 92, in resolve
-    result = self._result = resolver.resolve(
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/resolvelib/resolvers.py&quot;, line 546, in resolve
-    state = resolution.resolve(requirements, max_rounds=max_rounds)
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/resolvelib/resolvers.py&quot;, line 427, in resolve
-    failure_causes = self._attempt_to_pin_criterion(name)
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/resolvelib/resolvers.py&quot;, line 239, in _attempt_to_pin_criterion
-    criteria = self._get_updated_criteria(candidate)
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/resolvelib/resolvers.py&quot;, line 229, in _get_updated_criteria
-    for requirement in self._p.get_dependencies(candidate=candidate):
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/resolution/resolvelib/provider.py&quot;, line 244, in get_dependencies
-    return [r for r in candidate.iter_dependencies(with_requires) if r is not None]
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/resolution/resolvelib/provider.py&quot;, line 244, in &lt;listcomp&gt;
-    return [r for r in candidate.iter_dependencies(with_requires) if r is not None]
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/resolution/resolvelib/candidates.py&quot;, line 391, in iter_dependencies
-    for r in self.dist.iter_dependencies():
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/commands/install.py&quot;, line 441, in run
+    conflicts = self._determine_conflicts(to_install)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/commands/install.py&quot;, line 572, in _determine_conflicts
+    return check_install_conflicts(to_install)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/operations/check.py&quot;, line 101, in check_install_conflicts
+    package_set, _ = create_package_set_from_installed()
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/operations/check.py&quot;, line 42, in create_package_set_from_installed
+    dependencies = list(dist.iter_dependencies())
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/metadata/pkg_resources.py&quot;, line 216, in iter_dependencies
     return self._dist.requires(extras)
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 2821, in requires
@@ -743,20 +747,57 @@ Traceback (most recent call last):
     loc, tokens = self._parse(instring, 0)
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
     loc, tokens = self.parseImpl(instring, pre_loc, doActions)
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3888, in parseImpl
-    resultlist += exprtokens
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/results.py&quot;, line 443, in __iadd__
-    if isinstance(v[0], ParseResults):
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4114, in parseImpl
+    return e._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4959, in parseImpl
+    loc, tokens = self_expr._parse(instring, loc, doActions, callPreParse=False)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 5226, in parseImpl
+    return super().parseImpl(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4375, in parseImpl
+    return self.expr._parse(instring, loc, doActions, callPreParse=False)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3864, in parseImpl
+    loc, resultlist = self.exprs[0]._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4114, in parseImpl
+    return e._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 856, in _parseNoCache
+    tokens = fn(instring, tokens_start, ret_tokens)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 291, in wrapper
+    ret = func(*args[limit:])
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/packaging/markers.py&quot;, line 129, in &lt;lambda&gt;
+    MARKER_ITEM.setParseAction(lambda s, l, t: tuple(t[0]))
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/results.py&quot;, line 247, in __iter__
+    def __iter__(self) -&gt; Iterator:
 KeyboardInterrupt
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File &quot;/usr/local/bin/pip3&quot;, line 8, in &lt;module&gt;
-    sys.e
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>xit(main())
+    sys.exit(main())
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/main.py&quot;, line 79, in main
     return command.main(cmd_args)
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/base_command.py&quot;, line 101, in main
@@ -777,18 +818,20 @@ Traceback (most recent call last):
     self.emit(record)
   File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/utils/logging.py&quot;, line 177, in emit
     self.console.print(renderable, overflow=&quot;ignore&quot;, crop=False, style=style)
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 1701, in print
-    extend(
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/segment.py&quot;, line 198, in &lt;genexpr&gt;
-    result_segments = (
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 1330, in render
-    for render_output in iter_render:
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/text.py&quot;, line 654, in __rich_console__
-    lines = self.wrap(
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/text.py&quot;, line 1174, in wrap
-    no_wrap = pick_bool(no_wrap, self.no_wrap, False) or overflow == &quot;ignore&quot;
-  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/_pick.py&quot;, line 4, in pick_bool
-    def pick_bool(*values: Optional[bool]) -&gt; bool:
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 1683, in print
+    render_options = self.options.update(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 981, in options
+    max_height=self.size.height,
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 1001, in size
+    if self.is_dumb_terminal:
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 973, in is_dumb_terminal
+    _term = self._environ.get(&quot;TERM&quot;, &quot;&quot;)
+  File &quot;/usr/lib/python3.10/_collections_abc.py&quot;, line 824, in get
+    return self[key]
+  File &quot;/usr/lib/python3.10/os.py&quot;, line 681, in __getitem__
+    return self.decodevalue(value)
+  File &quot;/usr/lib/python3.10/os.py&quot;, line 759, in decode
+    def decode(value):
 KeyboardInterrupt
 </pre></div>
 </div>
@@ -1788,7 +1831,7 @@ Length: 2069, dtype: object
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7b3782953a2c4b29b12db5402140d46f"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "233780a34b404934a9895d35bcff8ae8"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8d5741c7347840cf88d5865cee8728fc"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "34247a64b20e4623a2c5b6d77cabd255"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "53bd6130554942e2a15aabf7ba102a87"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4cf6c3aea2df42bbb1455260c0c90ed2"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "efb6f507a4ed4f1391f9b688e581f75d"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7af6d801959e42d685dd3a31ed9e05c8"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "85c9274ef0b741e8835d144451f75c61"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9107a76d8ee740a29e33c807c064fb61"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "261f20c31d2940c48fcf394b548b15ae"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1fbe020ad8bb4d1e97eaadf6438f8a2e"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "eacd9090c38c49d2b3579c4dc0a6134f"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9c5bbdeec0264426b73463c70ebf5f78"}</script></div>
 </div>
-<p>Buat kolom <code class="docutils literal notranslate"><span class="pre">df['vector']</span></code> dimana setiap abstrak akan direpresentasikan dalam bentuk vektor</p>
+<p>Buat kolom <code class="docutils literal notranslate"><span class="pre">df['vector']</span></code> dimana setiap berita akan direpresentasikan dalam bentuk vektor</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_df</span><span class="p">[</span><span class="s1">&#39;vector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_df</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">nlp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">vector</span><span class="p">)</span>
@@ -2172,9 +2215,9 @@ Length: 2069, dtype: object
 </section>
 <section id="classification-test">
 <h3>Classification Test<a class="headerlink" href="#classification-test" title="Permalink to this heading">#</a></h3>
-<p>Uji coba abstrak baru terhadap model yang sudah dilatih</p>
+<p>Uji coba berita baru terhadap model yang sudah dilatih</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">abstracts</span></code> untuk data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">news</span></code> untuk data</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">labels</span></code> untuk kategori</p></li>
 </ul>
 <div class="cell docutils container">
